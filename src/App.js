@@ -52,7 +52,13 @@ useEffect(() => {
 
   return (
     <div className="App">
+      <header className="App-header">
+        <h1>WELCOME</h1>
+      </header>
       <div id="container-id" />
+      <footer className="App-footer">
+        <span>some footer text</span>
+      </footer>
     </div>
   );
 }
