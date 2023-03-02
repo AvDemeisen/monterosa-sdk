@@ -4,12 +4,12 @@
     embed,
     unmount,
     requestMoreData,
+    getExperience
   } from "@monterosa-sdk/launcher-kit";
-  import { getExperience } from '@monterosa-sdk/launcher-kit';
   import './App.css';
 
 const App = () => {
-configure({ host: 'cdn-dev.monterosa.cloud', projectId: '2563de4f-422e-4b77-89df-487b6ccd4e44' });
+configure({ host: 'cdn-dev.monterosa.cloud', projectId: 'e1940dd8-845c-49d0-82ee-f60d3e150370' });
 
 const experience = getExperience({
   experienceUrl: '//localhost:3000/',
