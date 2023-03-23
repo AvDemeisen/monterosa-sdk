@@ -9,7 +9,7 @@
   import './App.css';
 
 const App = () => {
-  const [experienceUrl, setExperienceUrl] = useState('//localhost:3000/')
+  const [experienceUrl, setExperienceUrl] = useState('https://apps.monterosa.cloud/fankit/v24.37.0-qa-3/index.html')
   const [projectId, setProjectId] = useState('e1940dd8-845c-49d0-82ee-f60d3e150370');
   const [eventId, setEventId] = useState('');
   const [autoresizesHeight, setAutoresizesHeight] = useState(true)
