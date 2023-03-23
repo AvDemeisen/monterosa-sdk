@@ -9,16 +9,28 @@
   import './App.css';
 
 const App = () => {
-  const [projectId, setProjectId] = useState('a8edfdd7-fcdc-428c-a287-4bc93f3100bc');
+  const [experienceUrl, setExperienceUrl] = useState('//localhost:3000/')
+  const [projectId, setProjectId] = useState('e1940dd8-845c-49d0-82ee-f60d3e150370');
+  const [eventId, setEventId] = useState('');
+  const [autoresizesHeight, setAutoresizesHeight] = useState(true)
 configure({ host: 'cdn-dev.monterosa.cloud', projectId });
 
 const experience = getExperience({
-  experienceUrl: 'https://apps.monterosa.cloud/fankit/epic/element-scaffold/index.html',
-  autoresizesHeight: true
+  experienceUrl,
+  eventId,
+  autoresizesHeight
 })
 
-const handleInputChange = (event) => {
+const handleExperienceChange = (event) => {
+  setExperienceUrl(event.target.value);
+};
+
+const handleProjectChange = (event) => {
   setProjectId(event.target.value);
+};
+
+const handleEventChange = (event) => {
+  setEventId(event.target.value);
 };
 
 useLayoutEffect(() => {
@@ -58,9 +70,14 @@ useEffect(() => {
   return (
     <div className="App">
       <header className="App-header">
-        <h1>WELCOME</h1>
+        <h1>SDK PARENT DEMO</h1>
+        <span>paste your experience URL into the input below</span>
+        <input type="text" value={experienceUrl} onChange={handleExperienceChange} />
         <span>paste your project ID into the input below</span>
-        <input type="text" value={projectId} onChange={handleInputChange} />
+        <input type="text" value={projectId} onChange={handleProjectChange} />
+        <span>paste your event ID into the input below</span>
+        <input type="text" value={eventId} onChange={handleEventChange} />
+        <button type="button" onClick={() => setAutoresizesHeight(!autoresizesHeight)}>turn auto resize {autoresizesHeight ? 'off' : 'on'}</button>
       </header>
       <div id="container-id" />
       <footer className="App-footer">
