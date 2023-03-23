@@ -10,7 +10,7 @@
 
 const App = () => {
   const [experienceUrl, setExperienceUrl] = useState('https://apps.monterosa.cloud/fankit/v24.37.0-qa-3/index.html')
-  const [projectId, setProjectId] = useState('e1940dd8-845c-49d0-82ee-f60d3e150370');
+  const [projectId, setProjectId] = useState('5e231287-bce9-40b0-bc13-af3932d6262c');
   const [eventId, setEventId] = useState('');
   const [autoresizesHeight, setAutoresizesHeight] = useState(true)
 configure({ host: 'cdn-dev.monterosa.cloud', projectId });
