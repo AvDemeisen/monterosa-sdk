@@ -1,4 +1,4 @@
-  import { useLayoutEffect, useEffect } from 'react'
+  import { useLayoutEffect, useEffect, useState } from 'react'
   import { configure } from '@monterosa-sdk/core';
   import {
     embed,
@@ -9,12 +9,17 @@
   import './App.css';
 
 const App = () => {
-configure({ host: 'cdn-dev.monterosa.cloud', projectId: 'e1940dd8-845c-49d0-82ee-f60d3e150370' });
+  const [projectId, setProjectId] = useState('a8edfdd7-fcdc-428c-a287-4bc93f3100bc');
+configure({ host: 'cdn-dev.monterosa.cloud', projectId });
 
 const experience = getExperience({
-  experienceUrl: '//localhost:3000/',
+  experienceUrl: 'https://apps.monterosa.cloud/fankit/epic/element-scaffold/index.html',
   autoresizesHeight: true
 })
+
+const handleInputChange = (event) => {
+  setProjectId(event.target.value);
+};
 
 useLayoutEffect(() => {
   if (experience === undefined) return () => {};
@@ -54,6 +59,8 @@ useEffect(() => {
     <div className="App">
       <header className="App-header">
         <h1>WELCOME</h1>
+        <span>paste your project ID into the input below</span>
+        <input type="text" value={projectId} onChange={handleInputChange} />
       </header>
       <div id="container-id" />
       <footer className="App-footer">
