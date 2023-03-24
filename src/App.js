@@ -13,13 +13,15 @@ const App = () => {
   const [projectId, setProjectId] = useState('5e231287-bce9-40b0-bc13-af3932d6262c');
   const [eventId, setEventId] = useState('');
   const [autoresizesHeight, setAutoresizesHeight] = useState(true)
-configure({ host: 'cdn-dev.monterosa.cloud', projectId });
+  const [hidesHeadersAndFooters, setHidesHeadersAndFooters] = useState(false)
+  configure({ host: 'cdn-dev.monterosa.cloud', projectId });
 
-const experience = getExperience({
-  experienceUrl,
-  eventId,
-  autoresizesHeight
-})
+  const experience = getExperience({
+    experienceUrl,
+    eventId,
+    autoresizesHeight,
+    hidesHeadersAndFooters
+  })
 
 const handleExperienceChange = (event) => {
   setExperienceUrl(event.target.value);
@@ -71,13 +73,24 @@ useEffect(() => {
     <div className="App">
       <header className="App-header">
         <h1>SDK PARENT DEMO</h1>
-        <span>paste your experience URL into the input below</span>
-        <input type="text" value={experienceUrl} onChange={handleExperienceChange} />
-        <span>paste your project ID into the input below</span>
-        <input type="text" value={projectId} onChange={handleProjectChange} />
-        <span>paste your event ID into the input below</span>
-        <input type="text" value={eventId} onChange={handleEventChange} />
-        <button type="button" onClick={() => setAutoresizesHeight(!autoresizesHeight)}>turn auto resize {autoresizesHeight ? 'off' : 'on'}</button>
+        <span>paste your details below</span>
+        <div className="input-wrapper">
+        <label for="experienceUrl">Experience URL</label>
+        <input id="experienceUrl" type="text" value={experienceUrl} onChange={handleExperienceChange} />
+        </div>
+        <div className="input-wrapper">
+        <label for="projectId">Project ID</label>
+        <input id="projectId" type="text" value={projectId} onChange={handleProjectChange} />
+        </div>
+        <div className="input-wrapper">
+        <label for="eventId">Event ID</label>
+        <input id="eventId" type="text" value={eventId} onChange={handleEventChange} />
+        </div>
+        <div className="buttons">
+        <button type="button" onClick={() => setAutoresizesHeight(!autoresizesHeight)}>auto resize {autoresizesHeight ? 'on' : 'off'}</button>
+        <button type="button" disabled onClick={() => setHidesHeadersAndFooters(!hidesHeadersAndFooters)}>header/footer {hidesHeadersAndFooters ? 'hidden' : 'displayed'}</button>
+        </div>
+
       </header>
       <div id="container-id" />
       <footer className="App-footer">
