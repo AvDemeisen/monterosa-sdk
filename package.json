@@ -4,7 +4,7 @@
   "private": true,
   "dependencies": {
     "@monterosa-sdk/core": "^0.15.0",
-    "@monterosa-sdk/launcher-kit": "^0.15.1",
+    "@monterosa-sdk/launcher-kit": "0.16.0",
     "@testing-library/jest-dom": "^5.16.5",
     "@testing-library/react": "^13.4.0",
     "@testing-library/user-event": "^13.5.0",
