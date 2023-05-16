@@ -1,5 +1,4 @@
-/* eslint-disable no-unused-vars */
-  import { useLayoutEffect, useEffect, useState } from 'react'
+  import React, { useLayoutEffect, useEffect, useState } from 'react';
   import { configure } from '@monterosa-sdk/core';
   import {
     embed,
@@ -27,7 +26,6 @@ const App = () => {
   configure({ host: 'cdn-dev.monterosa.cloud', projectId });
 
   const experience = getExperience({
-    experienceUrl: 'localhost:3000',
     eventId,
     autoresizesHeight,
     hidesHeadersAndFooters
