@@ -19,14 +19,14 @@ const App = () => {
   }
 
   const { projectId: urlProjectId, eventId: urlEventId } = extractUrlComponents(window.location.href);
-  const [projectId, setProjectId] = useState(urlProjectId || '5e231287-bce9-40b0-bc13-af3932d6262c');
-  const [eventId, setEventId] = useState(urlEventId || '');
+  const [projectId, setProjectId] = useState(urlProjectId || '08002f4c-d98b-4ec0-bf5f-896ccbaf3940');
+  const [eventId, setEventId] = useState(urlEventId || '3c265554-e05d-4236-bca6-e1b5097e907e');
   const [autoresizesHeight, setAutoresizesHeight] = useState(true)
-  const [hidesHeadersAndFooters, setHidesHeadersAndFooters] = useState(true)
+  const [hidesHeadersAndFooters, setHidesHeadersAndFooters] = useState(false)
   configure({ host: 'cdn-dev.monterosa.cloud', projectId });
 
   const experience = getExperience({
-    experienceUrl: 'https://apps.monterosa.cloud/fankit/v24.37.0-qa-3/index.html',
+    experienceUrl: 'localhost:3000',
     eventId,
     autoresizesHeight,
     hidesHeadersAndFooters
@@ -76,7 +76,7 @@ useEffect(() => {
       
         <div className="buttons">
         <button type="button" onClick={() => setAutoresizesHeight(!autoresizesHeight)}>turn auto resize {autoresizesHeight ? 'off' : 'on'}</button>
-        <button type="button" disabled onClick={() => setHidesHeadersAndFooters(!hidesHeadersAndFooters)}>header/footer {hidesHeadersAndFooters ? 'hidden' : 'displayed'}</button>
+        <button type="button" onClick={() => setHidesHeadersAndFooters(!hidesHeadersAndFooters)}>header/footer is {hidesHeadersAndFooters ? 'hidden' : 'displayed'}</button>
         </div>
 
       </header>
